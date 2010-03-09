@@ -1,0 +1,6 @@
+%h1 New subtype
+
+= render :partial => 'form', :locals => { :subtype => [@subtype.type, @subtype] }
+
+- if not @subtype.type.nil?
+  = link_to 'Back to Subtypes', type_subtypes_path(@subtype.type)

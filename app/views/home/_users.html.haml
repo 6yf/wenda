@@ -1,0 +1,13 @@
+.stat_div
+  .stat_caption
+    #{caption}:
+  %ol
+    - users.each do |u|
+      %li
+        = link_to u.name, user_url(u)
+        %span.time
+          (#{link_to n_s(u.question_count, 'question'), search_questions_path + '?user=' + u.name}
+          #{link_to n_s(u.answer_count, 'answer'), search_answers_path + '?user=' + u.name})
+  .show_all
+    - sort = (local_assigns.has_key? :sort) ? '?sort=' + sort + '&order=DESC' : ''
+    = link_to 'Show all users...', users_url + sort

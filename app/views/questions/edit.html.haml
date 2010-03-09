@@ -1,0 +1,7 @@
+%h1 Editing Question
+
+= render :partial => 'form', :locals => {:question => @question}
+
+= link_to 'Show', @question
+| 
+= link_to 'Back to Questions', subtype_questions_path(@question.subtype)

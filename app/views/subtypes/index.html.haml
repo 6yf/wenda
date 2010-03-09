@@ -1,0 +1,23 @@
+%h1 #{@subtypes.count} Subtypes for #{@type.nil? ? 'All Types' : 'Type: ' + @type.name}
+
+%table
+  %thead
+    %tr
+      %th Subtype
+      %th of Type
+      %th{ :colspan => 3 }
+  
+  %tbody
+    - for subtype in @subtypes
+      %tr{ :class => cycle(:odd, :even) }
+        %td= subtype.name
+        %td= subtype.type.name
+        %td= link_to 'Show', subtype
+        %td= link_to 'Edit', edit_subtype_path(subtype)
+        %td= link_to 'Destroy', subtype, :confirm => 'Are you sure?', :method => :delete
+
+- if not @type.nil?
+  %br
+  = link_to 'New Subtype', new_type_subtype_path(@type)
+  |
+  = link_to 'Back to the Type', type_path(@type)

@@ -1,0 +1,29 @@
+- @question.tags.build
+
+- form_for(question) do |f|
+  = f.error_messages
+  
+  .field
+    = f.label :name, 'Question'
+    %br
+    = f.text_field :name
+  .field
+    = f.label :user_id
+    %br
+    = f.collection_select :user_id, User.all, :id, :name
+  .field
+    = f.label :type_id
+    %br
+    = f.collection_select :type_id, Type.all, :id, :name
+  .field
+    = f.label :subtype_id
+    %br
+    = f.collection_select :subtype_id, Subtype.all, :id, :name
+    //= f.collection_select :subtype_id, Subtype.all(:conditions => {:type_id=>@question.type_id}), :id, :name
+
+  %h2 Tags:
+  = render :partial => 'tags/form1', :locals => {:form => f}
+  %br
+
+  .actions
+    = f.submit

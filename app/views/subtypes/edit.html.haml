@@ -1,0 +1,5 @@
+%h1 Editing subtype
+
+= render :partial => 'form', :locals => { :subtype => @subtype }
+
+== #{ link_to 'Show', @subtype } | #{ link_to 'Back to Subtypes', type_subtypes_path(@subtype.type) }

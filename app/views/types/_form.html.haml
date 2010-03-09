@@ -1,0 +1,16 @@
+- @type.subtypes.build
+
+- form_for(@type) do |f|
+  = f.error_messages
+  
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+
+  %h2 Subtypes:
+  = render :partial => 'subtypes/form1', :locals => {:form => f}
+  %br
+  
+  .actions
+    = f.submit

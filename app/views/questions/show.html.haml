@@ -1,0 +1,38 @@
+%p
+  %strong Question:
+  = @question.name
+%p
+  %strong User:
+  = @question.user.name
+%p
+  %strong Type:
+  = @question.type.name
+%p
+  %strong Subtype:
+  = @question.subtype.name
+
+%p
+  %strong Tags:
+  //= @question.tags.map{|tag| tag.name}.join(', ')
+  - @question.tags.each do |tag|
+    = tag.name + ' '
+
+%p
+  %strong Views:
+  = @question.view_count
+
+%p
+  %strong Answers:
+  %ol
+    - @question.answers.each do |answer|
+      %li #{link_to '['+answer.user.name+']', answer.user} #{link_to answer.name, answer}
+
+= link_to 'Add Answer', new_question_answer_path(@question)
+|
+= link_to 'Show Its Answers', question_answers_path(@question)
+|
+= link_to 'Show Its Tags', question_tags_path(@question)
+|
+= link_to 'Edit the Question', edit_question_path(@question)
+| 
+= link_to 'Back to Questions', subtype_questions_path(@question.subtype)

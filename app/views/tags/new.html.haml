@@ -1,0 +1,5 @@
+%h1 New Tag
+
+= render :partial => 'form', :locals => { :tag => [@tag.question, @tag] }
+
+= link_to 'Back to Tags', question_tags_path(@tag.question)

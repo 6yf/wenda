@@ -1,0 +1,15 @@
+%p
+  %strong Question:
+  = @answer.question.name
+%p
+  %strong Answer:
+  = @answer.name
+%p
+  %strong User:
+  = @answer.user.name
+
+%p
+  %strong Views:
+  = @answer.view_count
+
+== #{ link_to 'Edit', edit_answer_path(@answer) } | #{ link_to 'Back to Answers', question_answers_path(@answer.question) }

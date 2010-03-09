@@ -1,0 +1,8 @@
+- form.fields_for :subtypes do |st_form|
+  %div
+    %span.field= st_form.label :name, 'Subtype:'
+    = st_form.text_field :name
+
+    - unless st_form.object.nil? || st_form.object.new_record?
+      %span.field= st_form.label :_destroy, 'Remove:'
+      = st_form.check_box :_destroy

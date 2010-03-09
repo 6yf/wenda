@@ -1,0 +1,8 @@
+%p
+  %strong Tag:
+  = @tag.name
+%p
+  %strong Question:
+  = @tag.question.name
+
+== #{ link_to 'Edit', edit_tag_path(@tag) } | #{ link_to 'Back to Tags', question_tags_path(@tag.question) }

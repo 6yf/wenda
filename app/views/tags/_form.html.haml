@@ -1,0 +1,14 @@
+- form_for(tag) do |f|
+  = f.error_messages
+  
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :question
+    %br
+    = f.text_field :question_id
+
+  .actions
+    = f.submit

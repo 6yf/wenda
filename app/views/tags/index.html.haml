@@ -1,0 +1,21 @@
+%h1 #{@tags.count} Tags for #{@question.nil? ? 'All Questions' : 'Question: ' + @question.name}
+
+%table
+  %thead
+    %tr
+      %th Tag
+      %th{ :colspan => 3 }
+  
+  %tbody
+    - for tag in @tags
+      %tr{ :class => cycle(:odd, :even) }
+        %td= tag.name
+        %td= link_to 'Show', tag
+        %td= link_to 'Edit', edit_tag_path(tag)
+        %td= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete
+
+- if not @question.nil?
+  %br
+  = link_to 'New Tag', new_question_tag_path(@question)
+  |
+  = link_to 'Back to Question', question_path(@question)

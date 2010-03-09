@@ -1,0 +1,11 @@
+.stat_div
+  .stat_caption
+    Hot #{type.capitalize}s:
+  %ol
+    - url_func = method(type + '_url')
+    - eval('@hot_'+type+'s').each do |t|
+      %li
+        = link_to t.name, url_func.call(t)
+        %span.time (#{n_s(t.question_count, 'question')})
+  .show_all
+    = link_to "Show all #{type}s...", method(type+'s_url').call + '?sort=question_count&order=DESC'

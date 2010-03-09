@@ -1,0 +1,14 @@
+- form_for(subtype) do |f|
+  = f.error_messages
+  
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :type_id
+    %br
+    = f.collection_select :type_id, Type.all, :id, :name
+
+  .actions
+    = f.submit

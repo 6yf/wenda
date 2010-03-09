@@ -1,0 +1,6 @@
+%h1 New Question
+
+= render :partial => 'form', :locals => {:question => [@question.subtype, @question]}
+
+- if not @question.subtype.nil?
+  = link_to 'Back to Questions', subtype_questions_path(@question.subtype)

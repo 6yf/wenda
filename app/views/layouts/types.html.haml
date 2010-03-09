@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title== Types: #{ controller.action_name }
+    = stylesheet_link_tag 'scaffold'
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+  
+  %body
+    = crumb_navbar
+    %hr
+    %p.notice= notice
+    
+    = yield

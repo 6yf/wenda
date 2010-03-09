@@ -1,0 +1,2 @@
+module SubtypesHelper
+end

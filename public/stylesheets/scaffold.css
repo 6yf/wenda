@@ -1,0 +1,80 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  font-size: 11px;
+  padding: 10px; }
+
+a {
+  color: #000; }
+  a:visited {
+    color: #666; }
+  a:hover {
+    background-color: #000;
+    color: #fff; }
+
+.notice {
+  color: green; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#errorExplanation {
+  background-color: #f0f0f0;
+  border: 2px solid red;
+  margin-bottom: 20px;
+  padding: 7px;
+  padding-bottom: 12px;
+  width: 400px; }
+  #errorExplanation h2 {
+    background-color: #c00;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    margin: -7px;
+    padding: 5px 5px 5px 15px;
+    text-align: left; }
+  #errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px; }
+  #errorExplanation ul li {
+    font-size: 12px;
+    list-style: square; }
+
+div.field, div.actions {
+  margin-bottom: 10px; }
+div.stat_div {
+  border: 1px solid gray;
+  float: left;
+  margin: 0 5px;
+  width: 19em; }
+  div.stat_div .stat_caption {
+    background-color: lightgray;
+    font-weight: bold;
+    padding: 0 0 0 10px; }
+  div.stat_div .show_all {
+    float: right;
+    font-size: 80%;
+    padding: 0 5px 5px; }
+    div.stat_div .show_all a {
+      color: darkgreen;
+      text-decoration: none; }
+      div.stat_div .show_all a:hover {
+        background-color: yellow; }
+  div.stat_div .time {
+    font-size: 70%;
+    padding: 0 15px 5px;
+    text-align: right; }

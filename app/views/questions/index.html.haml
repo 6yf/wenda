@@ -1,0 +1,9 @@
+%h1= page_title
+
+= render 'list'
+
+- if not @subtype.nil?
+  %br
+  = link_to 'New Question', new_subtype_question_path(@subtype)
+  |
+  = link_to 'Back to Subtype', @subtype

@@ -1,0 +1,26 @@
+%table
+  %thead
+    %tr
+      %th Question
+      %th Updated At
+      %th User
+      %th Answers
+      %th Type
+      %th Subtype
+      %th{ :colspan => 3 } Actions
+  
+  %tbody
+    - for question in @questions
+      %tr{ :class => cycle(:odd, :even) }
+        %td= link_to question.name, question
+        %td= local_time_str(question.updated_at)
+        %td= link_to question.user.name, user_path(question.user)
+        %td= question.answers.count
+        %td= link_to question.type.name, type_path(question.type)
+        %td= link_to question.subtype.name, subtype_path(question.subtype)
+        %td= link_to 'Show', question
+        %td= link_to 'Edit', edit_question_path(question)
+        %td= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete
+        %td= link_to 'Add Answer', new_question_answer_path(question)
+%br
+//= will_paginate @questions

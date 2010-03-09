@@ -1,0 +1,20 @@
+- form_for(answer) do |f|
+  = f.error_messages
+  
+  .field
+    = f.label :name, 'Answer'
+    %br
+    = f.text_field :name
+  .field
+    = f.label :question_id
+    %br
+    = f.label @answer.question.name
+    = f.text_field :question_id, :type => "hidden", :size => 7
+    // can't submit with :disabled => "disabled"
+  .field
+    = f.label :user_id
+    %br
+    = f.collection_select :user_id, User.all, :id, :name
+
+  .actions
+    = f.submit

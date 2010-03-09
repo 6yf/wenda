@@ -1,0 +1,14 @@
+%p
+  %strong Type Name:
+  = @type.name
+
+%p
+  %strong Subtypes:
+  - @type.subtypes.each do |subtype|
+    = link_to subtype.name, subtype
+
+= link_to 'Edit', edit_type_path(@type)
+|
+= link_to 'Show Subtypes', type_subtypes_path(@type)
+|
+= link_to 'Back to Types', types_path

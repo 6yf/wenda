@@ -1,0 +1,6 @@
+%h1 New Answer
+
+= render :partial => 'form', :locals => { :answer => [@answer.question, @answer] }
+
+- if not @answer.question.nil?
+  = link_to 'Back to Answers', question_answers_path(@answer.question)

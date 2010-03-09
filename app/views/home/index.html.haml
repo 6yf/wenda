@@ -1,0 +1,41 @@
+%h1 Wenda.net
+%p
+  %big #{link_to "Users", users_path} | #{link_to "Types", types_path} 
+  %i
+    %small &nbsp; Welcome to wenda.net  (started on 2010.2.27)
+
+= render :partial => 'questions', :locals => {:id=>'hot_questions_of_views', |
+  :caption=>'Hot Questions of Views', :questions=>@hot_questions_of_views, :sort=>'view_count'} |
+%span
+= render :partial => 'questions', :locals => {:id=>'latest_questions', |
+  :caption=>'Latest Questions', :questions=>@latest_questions} |
+%span
+= render :partial => 'answers', :locals => {:id=>'latest_answers', |
+  :caption=>'Latest Answers', :answers=>@latest_answers} |
+%span
+= render :partial => 'answers', :locals => {:id=>'hot_answers', |
+  :caption=>'Hot Answers of Views', :answers=>@hot_answers_of_views, :sort=>'view_count'} |
+%span
+= render :partial => 'users', :locals => {:id=>'hot_users_of_questions', |
+  :caption=>'Hot Users of Questions', :users=>@hot_users_of_questions, :sort=>'question_count'} |
+%span
+= render :partial => 'users', :locals => {:id=>'hot_users_of_answers', |
+  :caption=>'Hot Users of Answers', :users=>@hot_users_of_answers, :sort=>'answer_count'} |
+
+%hr(style="clear:both")
+
+= render :partial => 'types', :locals => {:id=>'hot_types', :type=>'type'}
+
+= render :partial => 'types', :locals => {:id=>'hot_subtypes', :type=>'subtype'}
+
+.stat_div#hot_tags
+  .stat_caption
+    Hot Tags:
+  %ol
+    - @hot_tags.each do |t|
+      %li #{link_to t.name, search_questions_path + '?tag=' + t.name} (#{t.count})
+  .show_all
+    = link_to 'Show all tags...', tags_url + '?sort=question_count&order=DESC'
+
+= render :partial => 'questions', :locals => {:id=>'hot_questions_of_answers', |
+  :caption=>'Hot Questions of Answers', :questions=>@hot_questions, :sort=>'answer_count'} |

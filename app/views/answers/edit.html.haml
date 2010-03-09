@@ -1,0 +1,5 @@
+%h1 Editing Answer
+
+= render :partial => 'form', :locals => { :answer => @answer }
+
+== #{ link_to 'Show', @answer } | #{ link_to 'Back to Answers', question_answers_path(@answer.question) }

@@ -1,0 +1,19 @@
+%table
+  %thead
+    %tr
+      %th User
+      %th Answer
+      %th to Question
+      %th at
+      %th{ :colspan => 3 }
+  
+  %tbody
+    - for answer in @answers
+      %tr{ :class => cycle(:odd, :even) }
+        %td= answer.user.name
+        %td= answer.name
+        %td= answer.question.name
+        %td= local_time_str(answer.updated_at)
+        %td= link_to 'Show', answer
+        %td= link_to 'Edit', edit_answer_path(answer)
+        %td= link_to 'Destroy', answer, :confirm => 'Are you sure?', :method => :delete

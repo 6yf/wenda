@@ -1,0 +1,9 @@
+%h1 #{@answers.count} Answers for #{@question.nil? ? 'All Questions' : 'Question: ' + @question.name}
+
+= render 'list'
+
+- if not @question.nil?
+  %br
+  = link_to 'New Answer', new_question_answer_path(@question)
+  |
+  = link_to 'Back to Question', @question

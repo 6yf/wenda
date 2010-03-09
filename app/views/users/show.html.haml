@@ -1,0 +1,20 @@
+%p
+  %strong Name:
+  = @user.name
+%p
+  %strong Email:
+  = @user.email
+%p
+  //%strong Password:
+  //= @user.password
+%p
+  %strong Info:
+  = @user.info
+
+= link_to @user.name + '\'s Questions', search_questions_path + '?user=' + @user.name
+|
+= link_to @user.name + '\'s Answers', search_answers_path + '?user=' + @user.name
+|
+= link_to 'Edit', edit_user_path(@user)
+|
+= link_to 'User List', users_path

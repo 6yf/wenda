@@ -1,0 +1,15 @@
+%p
+  Subtype:
+  %strong= @subtype.name
+  &nbsp;
+  of Type:
+  %strong= @subtype.type.name
+%p
+  Questions:
+  = render 'questions/list'
+  %br
+= link_to 'Edit', edit_subtype_path(@subtype)
+|
+= link_to 'New Question', new_subtype_question_path(@subtype)
+|
+= link_to 'Back to Subtypes', type_subtypes_path(@subtype.type)

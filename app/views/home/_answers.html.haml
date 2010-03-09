@@ -1,0 +1,17 @@
+.stat_div
+  // How to set its div ID as a parameter?
+  .stat_caption
+    .show_all
+      - sort = (local_assigns.has_key? :sort) ? '?sort=' + sort + '&order=DESC' : ''
+      = link_to 'See all', answers_url + sort
+    #{caption}:
+  %ol
+    - answers.each do |a|
+      %li
+        = link_to trunc(a.name), answer_url(a)
+        %br
+        .time
+          - if a.view_count > 0
+            #{n_s(a.view_count, 'view')}.
+          By #{link_to a.user.name, user_url(a.user)}
+          at #{local_time_str(a.updated_at)}
